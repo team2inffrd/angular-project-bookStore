@@ -1,3 +1,84 @@
-<p>
-  login works!
-</p>
+<!-- <div class="background-img">
+  <div class="center">
+    <form class="login_panel" [formGroup]="loginForm">
+      <div class="form-top">
+        <div>
+          <label class="center-block">Name</label>
+        </div>
+        <input id="name" class="form-c border-round" formControlName="name" required>
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert-n alert-d">
+          <div *ngIf="name.errors.required">
+            Name is required.
+          </div>
+          <div *ngIf="name.errors.minlength">
+            Name must be at least 4 characters long.
+          </div>
+          <div *ngIf="name.errors.forbiddenName">
+            Name cannot be contain anil.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>
+          <label class="center-block">Password</label>
+        </div>
+        <input class="form-c border-round" formControlName="password" required>
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert-n alert-d">
+          <div *ngIf="password.errors.required">
+            Password is required.
+          </div>
+          <div *ngIf="password.errors.pattern">
+            Must contain At least 8 characters in length, Lowercase letters, Uppercase letters, Numbers, Special characters
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="button-s">Submit</button>
+    </form>
+  </div>
+</div>
+-->
+<nav>
+  <ul>
+    <li><a href="#">click me1</a></li>
+    <li><a href="#">click me2</a></li>
+    <li><a href="#">click me2</a></li>
+  </ul>
+</nav>
+<div class="center">
+  <form class="login_panel" [formGroup]="loginForm">
+    <div class="form-top">
+      <div>
+        <label class="center-block">Name</label>
+      </div>
+      <input id="name" class="form-c border-round" formControlName="name" required>
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="border-round alert-n alert-d">
+        <div *ngIf="name.errors.required">
+          Name is required.
+        </div>
+        <div *ngIf="name.errors.minlength">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="name.errors.forbiddenName">
+          Name cannot be contain anil.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div>
+        <label class="center-block">Password</label>
+      </div>
+      <input class="form-c border-round" formControlName="password" required>
+      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="border-round alert-n alert-d">
+        <div *ngIf="password.errors.required">
+          Password is required.
+        </div>
+        <div *ngIf="password.errors.pattern">
+          Must contain At least 8 characters in length, Lowercase letters, Uppercase letters, Numbers, Special characters
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="button-s">Submit</button>
+  </form>
+</div>
+<!-- <p>Form value: {{ loginForm.value | json }}</p>
+<p>Form status: {{ loginForm.status | json }}</p> -->
