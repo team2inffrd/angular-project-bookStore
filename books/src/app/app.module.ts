@@ -29,7 +29,7 @@ import {shareService} from '../services/status-variables.service';
     HttpModule
   ],
   providers: [UtilityServiceService, BackendService, shareService],
-  bootstrap: [AppModule],
+  bootstrap: [AppComponent],
 })
 
 export class AppModule {
