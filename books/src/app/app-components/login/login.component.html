@@ -77,8 +77,9 @@
         </div>
       </div>
     </div>
-    <button type="submit" class="button-s">Submit</button>
+    <button type="submit" class="button-s" (click)="loginFun('get')" >Login</button>
   </form>
+  <button type="submit" class="button-s" (click)="loginFun('post')">Update</button>
 </div>
 <!-- <p>Form value: {{ loginForm.value | json }}</p>
 <p>Form status: {{ loginForm.status | json }}</p> -->

@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LoginComponent }  from './app-components/login/login.component'
 import { ReactiveFormsModule } from '@angular/forms';
+import { BackendService } from '../services/backend.service';
+import { HttpModule } from '@angular/http'
+import { shareService } from '../services/status-variables.service';
 
 
 @NgModule({
@@ -13,9 +16,10 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [BackendService, shareService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
