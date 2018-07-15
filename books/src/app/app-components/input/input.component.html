@@ -1,0 +1,19 @@
+<ng-container [ngSwitch]="inputData?.formElementSubType">
+  <div *ngSwitchCase="'text'" class="op-input-text" [formGroup]="inputGroup">
+    <p>{{inputData?.formElementTitle}}</p>
+    <span>
+      <i class="material-icons">person</i>
+      <input type="text" class="op-text" (input)="onInputChange(inputData,$event)" [formControlName]="inputData?.key">
+    </span>
+
+  </div>
+  <div *ngSwitchCase="'password'" class="op-input-text" [formGroup]="inputGroup">
+    <p>{{inputData?.formElementTitle}}</p>
+    <span>
+      <i class="material-icons">lock</i>
+      <input type="password" class="op-text" (input)="onInputChange(inputData,$event)"
+             [formControlName]="inputData?.key">
+    </span>
+
+  </div>
+</ng-container>
