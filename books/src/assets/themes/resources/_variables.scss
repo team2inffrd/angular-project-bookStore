@@ -1,0 +1,66 @@
+$books-color-blue-s1: #008891;
+$books-color-blue-s2: #00587a;
+$books-color-blue-s3: #0f3057;
+$books-color-blue-s4: #e7e7de;
+
+//$optix-color-blue-s1: #027db6;
+//$optix-color-blue-s2: #015a84;
+//$optix-color-blue-s3: #c9eefe;
+//
+//$optix-color-blue-s1: #5a7481;
+//$optix-color-blue-s2: #ced7dc;
+//$optix-color-blue-s3: #e9edef;
+//
+//$optix-color-sec-green: #2e844f;
+//$optix-color-sec-orange: #e67a20;
+//$optix-color-sec-red: #c1382d;
+//$optix-color-sec-pink: #da1461;
+//$optix-color-sec-black: #2a2a2a;
+
+// Reset CSS variables
+// We will be coding all the font sizes and the color values accorind to the theme and we will have to reference this value only.
+
+$op-base-font-size: 14px;
+
+// this is used for the calculations below as we cannot use the above base font since it has px appended to it.
+$op-base-font-value: 14;
+
+// Responsive break points
+// These must be the starting point of the responsive screen so the min width as we are coding for
+// 300px to 480px since we are following mobile responsive screen
+
+$op-tablet-start: 768px;
+$op-tablet-end: 1020px;
+$op-desktop-end: 1920px;
+
+$op-mobile-padding: 0 15px;
+$op-tab-desktop-padding: 0 30px;
+
+// Basic Font sizes
+$op-font-12px: (12/$op-base-font-value) em;
+$op-font-14px: (14/$op-base-font-value) em;
+$op-font-16px: (16/$op-base-font-value) em;
+$op-font-18px: (18/$op-base-font-value) em;
+$op-font-24px: (24/$op-base-font-value) em;
+$op-font-28px: (28/$op-base-font-value) em;
+
+// Font colors across the application
+$op-font-color-blue: #1976d2;
+$op-font-color-black: #2a2a2a;
+
+// Other color properties
+$op-color-background: #ddd;
+$op-color-green-l1: #009688;
+$op-color-green-l2: #b2dfdb;
+$op-color-green-l3: #004d40;
+$op-color-white: #e9edef;
+//$op-color-blue-l1 : #
+//$op-color-blue-l2 : #
+//$op-color-blue-l1 : #
+
+//Tables values
+$min-table-width: 100px;
+$max-table-width: 100px;
+$max-div-table-width: 120px;
+$max-table-height: 443px;
+$table-default-width: 200px;

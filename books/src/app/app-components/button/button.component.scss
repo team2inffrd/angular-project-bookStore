@@ -1,0 +1,45 @@
+@import '../../../assets/themes/resources/mixins';
+
+.app-primary-button {
+  @include button(auto, #46b7b9, #ffffff, true);
+  width: 100%;
+  min-width: 80px;
+  margin-top: 0;
+  min-height: 40px;
+  padding: 16px;
+  border-radius: 25px;
+  font-size: 16px;
+  text-transform: uppercase;
+  //background: -webkit-linear-gradient(top, #e8519e, #c77ff2, #e8519e, #c77ff2);
+  &:hover {
+    span {
+      padding-right: 25px;
+      &:after {
+        opacity: 1;
+        right: 0;
+      }
+    }
+  }
+  &:focus {
+    outline: none;
+  }
+  span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    &:after {
+      content: '\00bb';
+      color: #ffffff;
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+  }
+}
+
+.button-wrapper {
+  margin: 20px 0 20px;
+}

@@ -1,0 +1,62 @@
+@import "resource/variable";
+@import "resource/mixins";
+
+html {
+  body {
+    @include box-model(100vw, 100vw, 100%, 100%, 100%, 100%, 0, 0 auto, none);
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: $op-base-font-size;
+    scroll-behavior: smooth;
+    font-family: roboto-regular, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background: #ddd;
+    table {
+      border-spacing: 0;
+      margin: 0;
+      th {
+        text-align: left;
+      }
+    }
+
+    i {
+      color: #666;
+      max-height: 24px;
+      max-width: 24px;
+    }
+
+    a {
+      text-decoration: none;
+      color: $op-font-color-blue;
+      cursor: pointer;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .not-underline-onhover:hover {
+      text-decoration: none;
+    }
+
+    label, p, ul, li, div, h1, h2, h3, h4, h5, h6 {
+      padding: 0;
+      margin: 0;
+    }
+
+    ul li {
+      list-style: none;
+    }
+
+    &.op-no-scroll {
+      overflow-y: hidden;
+    }
+    .op-search-result {
+      font-weight: bold;
+      font-size: 1.04em
+    }
+    input{
+      font-family: roboto-regular, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    }
+    input[type=text]::-ms-clear {
+      display: none;
+    }
+  }
+}
