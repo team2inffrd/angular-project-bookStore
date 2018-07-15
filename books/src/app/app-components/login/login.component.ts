@@ -11,23 +11,18 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
+  }
+
+  ngOnInit() {
     this.loginForm = this.fb.group({
-      userName: ['', Validators.required, Validators.minLength(5)],
-      password: ['', Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]
-    })
-   }
-
-   ngOnInit(){
-
-   }
-  // loginForm: FormGroup;
-  // createForm() {
-  //   this.loginForm = this.fb.group ({
-  //     name: ['', [Validators.required,Validators.minLength(4),forbiddenNameValidator(/anil/i)],''],
-  //     password: ['', Validators.compose([
-  //       Validators.required,
-  //       Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')
-  //     ])]
-  //   });
-  // }
+      userName: ['', Validators.required],
+      password: ['', Validators.required, Validators.minLength(5)]
+    });
+    
+  }
+  submit(){
+    console.log(this.loginForm)
+  }
+  // get name() { return this.loginForm.get('userName'); }
+  // get password() { return this.loginForm.get('password'); }
 }

@@ -1,15 +1,14 @@
 <div class="loginForm-container">
   <h2>Login</h2>
-<form [formGroup]="loginForm">
-  <div class="form-group">
-    <input class="form-control" formControlName="userName" placeholder="Username">
-  </div>
-  <div class="form-group">
-    <input class="form-control" formControlName="password" type="password" placeholder="Password">
-  </div>
-  <button type="button" class="login-btn">Login</button>
-</form>
-<p>Form value: {{ loginForm.get('userName').value | json }}</p>
-<p>Form value: {{ loginForm.get('password').value | json }}</p>
-<p>Form status: {{ loginForm.status | json }}</p>
+  <form [formGroup]="loginForm" (submit)="submit()">
+    <div class="form-group">
+      <input class="form-control" formControlName="userName" placeholder="Username" />
+      <p *ngIf="loginForm.controls.userName.status == 'INVALID' && loginForm.controls?.userName?.errors?.required">required</p>
+    </div>
+    <div class="form-group">
+      <input class="form-control" formControlName="password" type="password" placeholder="Password" />
+    </div>
+    <button type="submit" class="login-btn">Login</button>
+  </form>
+  <!-- <p>Form status: {{ loginForm | json }}</p> -->
 </div>

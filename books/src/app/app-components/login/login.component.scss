@@ -10,8 +10,19 @@
             padding: 10px;
             border-radius: 14px;
             width: 100%;
-            border: none;
+            // border: none;
             display: block
+        }
+        input {
+            background: #72514F;
+            border: 1px solid #fff;
+            color: #fff;
+            &:focus {
+                outline: none;
+            }
+            &:-webkit-input-placeholder {
+                color: #fff;
+            }
         }
     }
     .login-btn {
@@ -20,5 +31,6 @@
         border-radius: 14px;
         display: block;
         width: 100%;
+        cursor: pointer;
     }
 }
