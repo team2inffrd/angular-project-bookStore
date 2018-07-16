@@ -1,0 +1,8 @@
+<ng-container [ngSwitch]="inputData?.formElementSubType">
+    <div *ngSwitchCase="'primary'" [formGroup]="inputGroup" class="button-wrapper">
+      <button type="submit" class="app-primary-button"><span>{{inputData?.label}}</span></button>
+    </div>
+    <div *ngSwitchCase="'secondary'" class="button-wrapper" [formGroup]="inputGroup">
+      <button type="reset" class="app-secondary-button"><span>{{inputData?.label}}</span></button>
+    </div>
+  </ng-container>

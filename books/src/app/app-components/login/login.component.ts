@@ -17,24 +17,29 @@ export class LoginComponent {
 
   createForm() {
     this.loginForm = this.fb.group ({
-      name: ['', [Validators.required,Validators.minLength(4),forbiddenNameValidator(/anil/i)],''],
+      email: ['', [Validators.required,Validators.minLength(4),forbiddenNameValidator(/anil/i)],''],
       password: ['', Validators.compose([
         Validators.required,
         Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')
       ])]
     });
+    
   }
-
-  get name() { return this.loginForm.get('name'); }
+  submit(){
+    console.log(this.loginForm);
+  }
+  get email() {
+    return this.loginForm.get('email'); 
+  }
   get password() { return this.loginForm.get('password'); }
 
   loginFun(type: string) : void  {
     const status: boolean=false;
-    console.log(" username "+this.name.value);
+    console.log(" username "+this.email.value);
     console.log(" password "+this.password.value);
     if (type === "post") {
       const data : any = {
-        "userName": this.name.value,
+        "userName": this.email.value,
         "password": this.password.value
       };
       this._backendService.update(data);
@@ -52,7 +57,7 @@ export class LoginComponent {
       // )
       
     } else {
-      this._backendService.getData(this.name.value).subscribe(
+      this._backendService.getData(this.email.value).subscribe(
         res => {
           const response: any = res.json();
           console.log("response "+JSON.stringify(response))

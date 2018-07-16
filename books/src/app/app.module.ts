@@ -11,6 +11,7 @@ import {UtilityServiceService} from './app-services/utilityService.service';
 import {BackendService} from '../services/backend.service';
 import {HttpModule} from '@angular/http';
 import {shareService} from '../services/status-variables.service';
+import { LoginComponent } from './app-components/login/login.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {shareService} from '../services/status-variables.service';
     InputComponent,
     ButtonComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
