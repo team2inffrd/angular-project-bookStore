@@ -1,0 +1,198 @@
+@import "../resources/variables";
+
+// Mixins For Responsive screens.These mixins must be imported in the CSS file where we intent to use it.The steps to be followed are :
+// 1) To import these mixins please import the mixins into the SCSS file where we need to use it like this example below
+//      Eg:- @import '../../assets/theme/mixins'.The relative path must be provided with respect to the folder being used.
+// 2) After importing the mixins we can use them in our SCSS in this manner :
+//      Eg:- .box{ @include flex-box(nowrap,center). For the mixins we can pass parameters as shown in example where we are including
+//      flex box to the class 'box' by using include keyword open parenthesis and pass the arguments.
+
+// Mixins - Responsive
+
+// This mixin will be responsible for the screen size 480px to 560px
+@mixin tablet {
+  @media screen and (min-width: $op-tablet-start) {
+    @content;
+  }
+}
+
+// This mixin will be responsible for the screen size 560px to 768px
+@mixin mobile-landscape {
+  @media screen and (min-width: $op-tablet-start) {
+    @content;
+  }
+}
+
+// This mixin will be responsible for the screen size 768px to 900px
+@mixin tablet-landscape {
+  @media screen and (min-width: $op-tablet-start) {
+    @content;
+  }
+}
+
+// This mixin will be responsible for the screen size 1200px
+@mixin desktop {
+  @media screen and (min-width: $op-tablet-end) {
+    @content;
+  }
+}
+
+@mixin device-pixel-ratio($max-pixel-ratio,$min-pixel-ratio) {
+  @media (-webkit-max-device-pixel-ratio: $max-pixel-ratio) and (-webkit-min-device-pixel-ratio: $min-pixel-ratio) {
+    @content;
+  }
+}
+
+// Mixins - Utilty
+@mixin flex-box($wrap,$align) {
+  display: flex;
+  flex-wrap: $wrap;
+  align-items: $align;
+}
+
+@mixin box-model($width,$min-width,$max-width,$height,$min-height,$max-height,$padding,$margin,$box-shadow) {
+  box-sizing: border-box;
+  width: $width;
+  min-width: $min-width;
+  max-width: $max-width;
+  height: $height;
+  min-height: $min-height;
+  max-height: $max-height;
+  padding: $padding;
+  margin: $margin;
+  box-shadow: $box-shadow;
+}
+
+@mixin text-styling($font-size,$color,$weight,$align) {
+  font-size: $font-size;
+  color: $color;
+  font-weight: $weight;
+  text-align: $align;
+}
+
+@mixin data-table-width-styling($first-col-width, $max-width) {
+  &:first-child {
+    min-width: $first-col-width;
+    max-width: $first-col-width;
+  }
+
+  &:not(:first-child) {
+    min-width: $first-col-width;
+    width: 100%;
+    max-width: $max-width;
+  }
+}
+
+@mixin css-arrow($width,$color) {
+  border-top: $width solid $color;
+  border-right: $width solid transparent;
+  border-left: $width solid transparent;
+  width: 0;
+  height: 0;
+}
+
+@mixin widget-col($width,$max-width) {
+  -ms-flex-preferred-size: $width;
+  flex-basis: $width;
+  max-width: $max-width;
+}
+
+@mixin box-model-slim($width,$height) {
+  width: $width;
+  height: $height;
+  box-sizing: border-box;
+}
+
+@mixin box-pad-margin-border-shadow($padding,$margin,$border,$shadow) {
+  padding: $padding;
+  margin: $margin;
+  border: $border;
+  box-shadow: $shadow;
+}
+
+@mixin box-color($background,$box-shadow) {
+  background: $background;
+  box-shadow: $box-shadow;
+}
+
+// If we do not want to provide any value as such pass none as the property
+@mixin absolute-positioner($top,$right,$bottom,$left) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin padding-radius-transition($padding,$radius,$transition) {
+  padding: $padding;
+  border-radius: $radius;
+  transition: $transition;
+}
+
+// By default the width must be auto.Must be changed only in certain conditions
+// Pass the respective values where isBoxShadow is a boolean field.
+// Wherever we encounter a button please use this particular mixin
+@mixin button($width,$button-background,$color,$isBoxShadow) {
+  $dark: darken($button-background, 8%);
+  box-sizing: border-box;
+  min-width: 100px;
+  width: $width;
+  border: none;
+  cursor: pointer;
+  color: $color;
+  margin-top: 30px;
+  background: $button-background;
+  @include padding-radius-transition(12px 15px 9px, 2px, all ease-in-out 0.2s);
+  @if ($isBoxShadow) {
+    box-shadow: 1.3px 1.5px 5px 0 rgba(0, 0, 0, 0.25);
+  } @else {
+    box-shadow: none;
+  }
+  &:hover {
+    @if ($isBoxShadow) {
+      background: $dark;
+    } @else {
+      box-shadow: 1.3px 1.5px 5px 0 rgba(0, 0, 0, 0.25);
+    }
+  }
+  &:active {
+    box-shadow: 3.2px 3.8px 5px 0 rgba(0, 0, 0, 0.25);
+  }
+  &:focus {
+    border: 1px solid #2196F3;
+  }
+  &:disabled {
+    cursor: not-allowed;
+    background: transparentize($button-background, 0.75);
+    color: transparentize($color, 0.7);
+    box-shadow: none;
+  }
+}
+
+@mixin large-screen-aligner() {
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: $op-tab-desktop-padding;
+  max-width: $op-desktop-end;
+}
+
+@mixin dropdown-close() {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0;
+  //transition: all ease-in-out 0.4s;
+}
+
+@mixin dropdown-open($max-height) {
+  height: auto;
+  max-height: $max-height;
+}
+
+@mixin loader-css() {
+  background: linear-gradient(to left, #eaeaea, #edededd1, #eaeaea);
+  animation: loader-animation linear infinite 4s;
+  border-radius: 2px;
+  box-shadow: 0px 2px 5px rgba(210, 210, 210, 0.7);
+  box-sizing: border-box;
+}

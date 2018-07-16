@@ -1,14 +1,25 @@
 <div class="loginForm-container">
-  <h2>Login</h2>
+  <h1>Books of your Interest</h1>
   <form [formGroup]="loginForm" (submit)="submit()">
     <div class="form-group">
       <input class="form-control" formControlName="userName" placeholder="Username" />
-      <p *ngIf="loginForm.controls.userName.status == 'INVALID' && loginForm.controls?.userName?.errors?.required">required</p>
+      <ng-container *ngIf="name.invalid && (name.dirty || name.touched)">
+        <p class="alert-error-class">
+          Incorrect Email format.
+        </p>
+      </ng-container>
     </div>
     <div class="form-group">
       <input class="form-control" formControlName="password" type="password" placeholder="Password" />
+      <ng-container *ngIf="password.invalid && (name.dirty || password.touched)">
+        <p *ngIf="password.errors.minlength" class="alert-error-class">
+          ! Password must be at least 8 characters long.
+        </p>
+      </ng-container>
     </div>
-    <button type="submit" class="login-btn">Login</button>
+    <button type="submit" class="login-btn" [disabled]="!loginForm.valid">Login</button>
   </form>
-  <!-- <p>Form status: {{ loginForm | json }}</p> -->
+  <a href="">Create account</a> or 
+  <a href="">Reset password</a>
+  <!-- <p>Form status: {{ loginForm.status | json }}</p> -->
 </div>

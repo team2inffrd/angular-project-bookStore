@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './app-components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
