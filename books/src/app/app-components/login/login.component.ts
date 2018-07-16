@@ -17,10 +17,13 @@ export class LoginComponent {
 
   createForm() {
     this.loginForm = this.fb.group ({
-      email: ['', [Validators.required,Validators.minLength(4),forbiddenNameValidator(/anil/i)],''],
+      email: ['', Validators.compose([
+        Validators.required,
+        Validators.email])
+      ],
       password: ['', Validators.compose([
         Validators.required,
-        Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')
+        Validators.minLength(4)
       ])]
     });
     
@@ -75,6 +78,7 @@ export class LoginComponent {
         },
         err => {
           this._shareService.errorStatus = true;
+          this._shareService.errorMsg = "Status failed";
           console.log("Error occured");
         });
       }

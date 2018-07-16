@@ -5,4 +5,5 @@ export class shareService {
     static errorStatus: boolean;
   //data variables to share over the applications
   errorStatus : boolean = false; 
+  errorMsg : String = "";
 }
