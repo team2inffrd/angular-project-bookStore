@@ -1,7 +1,9 @@
 import { Injectable } from "@angular/core";
-import { Http } from "@angular/http";
+import { HttpClient, HttpInterceptor, HttpHandler, HttpRequest, HttpEvent, HttpResponse} from "@angular/common/http";
 import { Observable, Observer } from "rxjs";
 import { shareService } from './status-variables.service'
+import 'rxjs/add/operator/do';
+
 //import 'rxjs/add/operator/map'
 
 @Injectable()
@@ -10,7 +12,7 @@ export class BackendService {
     private baseUrl = 'http://localhost:3000/books/';
 
     // Injecting the http client into the service
-    constructor(private http: Http, private shareService: shareService) {}
+    constructor(private http: HttpClient, private shareService: shareService) {}
 
     // Method to post data
     update (data): void {

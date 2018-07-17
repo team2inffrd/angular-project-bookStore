@@ -1,24 +1,29 @@
+<ng-progress></ng-progress>
 <div class="loginForm-container">
   <h1>Books of your Interest</h1>
   <form [formGroup]="loginForm" (submit)="submit()">
     <div class="form-group">
       <input class="form-control" formControlName="email" placeholder="Username" />
-      <ng-container *ngIf="email.invalid && (email.dirty || email.touched)">
-        <p class="alert-error-class">
-          Incorrect Email format.
-        </p>
-      </ng-container>
+      
     </div>
     <div class="form-group">
       <input class="form-control" formControlName="password" type="password" placeholder="Password" />
-      <ng-container *ngIf="password.invalid && (password.dirty || password.touched)">
-        <p *ngIf="password.errors.minlength" class="alert-error-class">
-          ! Password must be at least 4 characters long.
-        </p>
-      </ng-container>
+      
     </div>
     <button type="submit" class="login-btn" (click)="loginFun('get')" [disabled]="!loginForm.valid">Login</button>
   </form>
+  <div class="error-msg-holder" *ngIf="email.invalid  && (email.dirty || email.touched) || password.invalid && (password.dirty || password.touched)">
+    <ng-container *ngIf="email.invalid && (email.dirty || email.touched)">
+      <p>
+        Incorrect Email format.
+      </p>
+    </ng-container>
+    <ng-container *ngIf="password.invalid && (password.dirty || password.touched)">
+      <p *ngIf="password.errors.minlength">
+        ! Password must be at least 4 characters long.
+      </p>
+    </ng-container>
+  </div>
   <!-- <button type="submit" class="button-s" (click)="loginFun('post')">Update</button> -->
 </div>
 <!-- <p>Form value: {{ loginForm.value | json }}</p>

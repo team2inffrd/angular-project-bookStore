@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
-import { BackendService } from '../../../services/backend.service'
+import { BackendService } from '../../../services/http-service.service'
 import { shareService } from '../../../services/status-variables.service'
 
 @Component({
@@ -62,7 +62,7 @@ export class LoginComponent {
     } else {
       this._backendService.getData(this.email.value).subscribe(
         res => {
-          const response: any = res.json();
+          const response: any = res
           console.log("response "+JSON.stringify(response))
           this._shareService.errorStatus = false;
           if (response.record[0] == null || response.record[0] == undefined ) {
